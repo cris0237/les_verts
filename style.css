@@ -3,3 +3,25 @@ body {
     font-family: 'Tangerine', cursive;
     background: #f8f9fc;
 }
+
+.item2 {
+    max-width: 25%;
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-areas: "header" "menu" "main" "footer";
+
+        grid-template-columns: 1fr;
+        grid-template-rows: auto/* Header */
+        minmax(75px, auto)/* Nav */
+        1fr/* Content */
+        minmax(75px, auto)/* Sidebar */
+        auto;
+        /* Footer */
+    }
+
+    menu {
+        margin: 0;
+    }
+}
