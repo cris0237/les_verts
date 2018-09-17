@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Verts Menu</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Assistant:300|Tangerine" rel="stylesheet">
+
+</head>
+
+<body>
+    <header>
+
+        <a href="index.html"><img src="images/logoer-03.png" width="200" height="200"></a>
+        <nav>
+            <button class="menu-item" data-kategori="alle">All</button>
+            <button class="menu-item" data-kategori="hovedretter">to eat</button>
+            <button class="menu-item" data-kategori="desserter">to snack</button>
+            <button class="menu-item" data-kategori="drikkevarer">To drink</button>
+
+        </nav>
+    </header>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="om.html">About</a>
+        <a href="menu.html">Menu</a>
+        <a href="kontakt.html">Contact</a>
+    </div>
+    <h6><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span></h6>
+
+
+    <main class="retContainer"> </main>
+
+    <template class="retTemplate">
+        <article class="ret">
+            <h2 class="overskrift" data-navn></h2>
+            <img class="billede" data-billede src="" alt="">
+            <p class="kortBeskrivelse" data-kortbeskrivelse></p>
+            <h5>Price: <span class="pris" data-pris></span> € </h5>
+        </article>
+    </template>
+    <footer>
+        <h4>Find us at: <br> 18 Avenue Victoria, Paris, France</h4>
+        <h4>Opening Hours: <br> Monday - Friday : 10am - 9pm; <br> Saturday &amp; Sunday : 9am - 9pm;</h4>
+        <h4>Contact us at: <br> hello@lesverts.com <br> +33 345 6789</h4>
+        <h4>Jobs: <br> We are always looking forward to expanding our green family. <br> Please apply at fam@lesverts.com</h4>
+    </footer>
+    <script>
+        let dest = document.querySelector(".retContainer"),
+            retter, menuFilter = "alle";
+        document.addEventListener("DOMContentLoaded", hentJson);
+        async function hentJson() {
+            let jsonData = await fetch("menu.json");
+            retter = await jsonData.json();
+            visRetter();
+        }
+        document.querySelectorAll(".menu-item").forEach(knap => {
+            knap.addEventListener("click", filtrering)
+        });
+
+        function filtrering() {
+            dest.textContent = "";
+            menuFilter = this.getAttribute("data-kategori");
+            visRetter();
+        }
+
+        function visRetter() {
+            let temp = document.querySelector(".retTemplate");
+            let dest = document.querySelector(".retContainer");
+
+            retter.forEach(ret => {
+                if (ret.kategori == menuFilter || menuFilter == "alle") {
+                    let klon = temp.cloneNode(true).content;
+                    klon.querySelector("[data-navn]").textContent = ret.navn;
+                    klon.querySelector("[data-billede]").src = "images/" + ret.billede + ".jpg";
+                    klon.querySelector("[data-billede]").addEventListener("click", () => {
+                        visModal(retten);
+                    })
+                    klon.querySelector("[data-kortbeskrivelse]").textContent = ret.kortbeskrivelse;
+                    klon.querySelector("[data-pris]").textContent = ret.pris;
+                    dest.appendChild(klon);
+                }
+            });
+        }
+
+        function visModal(retten) {
+            modal.classList.add("vis");
+            modal.querySelector(".modal-navn").textContent = retten.navn;
+            modal.querySelector(".modal-billede").src = "images/" + retten.billede + ".jpg";
+            modal.querySelector(".modal-navn").alt = "Photo af" + retten.navn;
+            modal.querySelector(".langBeskrivelse").textContent = retten.langbeskrivelse;
+            modal.querySelector(".oprindelsesregion").textContent = retten.oprindelsesregion;
+            modal.querySelector("button").addEventListener("click", skjulmodal);
+
+        }
+
+        function skjulmodal() {
+            modal.classList.remove("vis");
+            //window.scrollTo(0)
+        }
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+
+    <footer>
+    </footer>
+
+</body>
+
+</html>

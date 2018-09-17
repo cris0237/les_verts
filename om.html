@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Verts</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Assistant:300|Tangerine" rel="stylesheet">
+
+</head>
+
+<body>
+    <header>
+
+        <a href="index.html"><img src="images/logoer-03.png" width="200" height="200"></a>
+    </header>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="om.html">About</a>
+        <a href="menu.html">Menu</a>
+        <a href="kontakt.html">Contact</a>
+    </div>
+    <h6><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span></h6>
+
+
+    <div class="om_div">
+        <div class="om_tekst">
+            <p>Hello! <br> les verts is a vegan french-cuisine based restaurant-café, placed in the heart of Paris. We combine vegansim and french with a touch of elegance and minimalism. From desserts as crepes &amp; macarons, to classic food as onion soup &amp; ratatouille, we have it al. Come enjoy a bite or a whole meal, and get ready to lay back and our little green universe. <br> We are open every day of the week, from 10am (9am in the weekends) to 9pm. <br> If you have any questions or inqueries, please find the contact informations below. <br> If you wish to apply for a job and join our family, please send an e-mail to fam@lesverts.com. <br>Dogs are welcome inside les verts.</p>
+        </div>
+        <!-- Slideshow container -->
+        <div class="slideshow-container">
+
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade">
+
+                <img src="forks.jpg" style="width:100%">
+
+            </div>
+
+            <div class="mySlides fade">
+
+                <img src="images/frozen_lemonade.jpg" style="width:100%">
+
+            </div>
+
+            <div class="mySlides fade">
+
+                <img src="lime.jpg" style="width:100%">
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <footer>
+        <h4>Find us at: <br> 18 Avenue Victoria, Paris, France</h4>
+        <h4>Opening Hours: <br> Monday - Friday : 10am - 9pm; <br> Saturday &amp; Sunday : 9am - 9pm;</h4>
+        <h4>Contact us at: <br> hello@lesverts.com <br> +33 345 6789</h4>
+        <h4>Jobs: <br> We are always looking forward to expanding our green family. <br> Please apply at fam@lesverts.com</h4>
+    </footer>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+        var slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1
+            }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+    </script>
+
+</body>
+
+</html>

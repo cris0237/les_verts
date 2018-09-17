@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hent JSON</title>
+    <style>
+        body {
+            background-color: rgb(240, 240, 240);
+            text-align: center;
+        }
+
+        article {
+            padding: 1em;
+            background-color: white;
+        }
+
+        .data-container article img {
+            width: 100%;
+        }
+
+        .data-container {
+            margin: 0 auto;
+            display: grid;
+        }
+
+        @media screen and (min-width:580px) {
+            .data-container {
+                padding-left: 10%;
+                padding-right: 10%;
+                grid-gap: 5px;
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        #modal {
+            background-color: rgba(0, 0, 0, .7);
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            text-align: center;
+            /*display: none;*/
+            opacity: 0;
+            pointer-events: none;
+            transition: 1s;
+        }
+
+        #modal-content {
+            width: 70vw;
+            height: 70vh;
+            background-color: rgba(250, 250, 250, 1);
+            margin: auto;
+        }
+
+        #modal.vis {
+            /*display: block;*/
+            opacity: 1;
+            pointer-events: all;
+            transition: 0.5s;
+        }
+
+        #modal img {
+            height: 60vh;
+            width: 30vw;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <header>
+        <h1></h1>
+        <nav>
+            <button class="menu-item" data-kategori="alle">Alle Retter</button>
+            <button class="menu-item" data-kategori="forretter">Forretter</button>
+            <button class="menu-item" data-kategori="hovedretter">Hovedretter</button>
+            <button class="menu-item" data-kategori="desserter">Desserter</button>
+            <button class="menu-item" data-kategori="sideorders">Sideorders</button>
+            <button class="menu-item" data-kategori="drikkevarer">Drikkevarer</button>
+
+        </nav>
+    </header>
+
+    <main class="retContainer"> </main>
+
+    <template class="retTemplate">
+        <article class="ret">
+            <h2 class="overskrift" data-navn></h2>
+            <img class="billede" data-billede src="" alt="">
+            <p class="kortBeskrivelse" data-kortbeskrivelse></p>
+            <p>Pris: <span class="pris" data-pris></span>, </p>
+        </article>
+    </template>
+
+
+    <main class="container">
+        <section class="data-container"></section>
+    </main>
+    <template class="data-template">
+        <article class="person">
+            <h2></h2>
+            <img class="data-billede" src="" alt=""><br>
+
+            Ret: <a class="data-navn" href=""></a><br>
+            Pris: <span class="data-pris"></span><br>
+            <span class="data-kortbeskrivelse"></span><br>
+        </article>
+    </template>
+
+
+
+    <script>
+        let modal = document.querySelector("#modal");
+        let personer;
+        let dest = document.querySelector(".data-container");
+        document.addEventListener("DOMContentLoaded", hentJson);
+        retter, retFilter = "alle";
+
+        document.querySelectorAll(".menu-item").forEach(knap => {
+            knap.addEventListener("click", filtrering)
+        });
+
+        function filtrering() {
+            dest.textContent = "";
+            menuFilter = this.getAttribute("data-kategori");
+            visRetter();
+        }
+
+        async function hentJson() {
+            let myJson = await fetch("menu.json");
+            personer = await myJson.json();
+            visRetter();
+        }
+
+
+
+
+        /*  document.querySelectorAll(".data-billede").forEach(skift => {
+              skift.addEventListener("click", () => {
+                  console.log("skift");
+                  window.location.href = "single.html";
+
+              });
+
+          });*/
+
+        function retFiltrering() {
+            dest.textContent = "";
+            retFilter = this.getAttribute("data-kategori");
+            visRetter();
+        }
+
+        function visRetter() {
+            let temp = document.querySelector(".retTemplate");
+            let dest = document.querySelector(".retContainer");
+            document.querySelector("header h1").textContent = retFilter;
+            retter.forEach(ret => {
+                if (ret.kategori == menuFilter || menuFilter == "alle") {
+                    let klon = temp.cloneNode(true).content;
+                    klon.querySelector("[data-navn]").textContent = ret.navn;
+                    klon.querySelector("[data-billede]").src = "imgs/small/" + ret.billede + "-sm.jpg";
+                    klon.querySelector("[data-billede]").addEventListener("click", () => {
+                        window.location.href = "single.html?id=" + ret.id;
+                    })
+                    klon.querySelector("[data-kortbeskrivelse]").textContent = ret.kortbeskrivelse;
+                    klon.querySelector("[data-pris]").textContent = ret.pris;
+                    dest.appendChild(klon);
+                }
+            });
+        }
+
+        function visModal(retten) {
+            modal.classList.add("vis");
+            modal.querySelector(".modal-navn").textContent = retten.navn;
+            modal.querySelector(".modal-billede").src = retten.billede;
+            modal.querySelector(".modal-navn").alt = "Foto af" + retten.navn;
+            modal.querySelector("button").addEventListener("click", skjulModal);
+        }
+
+        function skjulModal() {
+            modal.classList.remove("vis");
+        }
+    </script>
+</body>
+
+</html>

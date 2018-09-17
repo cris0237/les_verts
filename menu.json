@@ -1,137 +1,107 @@
 [
     {
-        "id": 10,
-        "kategori": "desserter",
-        "navn": "Berry Muffins",
-        "pris": 5,
-        "kortbeskrivelse": ".",
-        "langbeskrivelse": ".",
-        "billede": "blueberry.jpg"
-},
-    {
-        "id": 12,
-        "kategori": "desserter",
-        "navn": "Brownies",
-        "pris": 5,
-        "kortbeskrivelse": ".",
-        "langbeskrivelse": ".",
-        "billede": "brownies.jpg"
-},
-    {
-        "id": 14,
         "kategori": "hovedretter",
-        "navn": "Vegan camembert & grapes",
+        "navn": "Camembert & grapes",
         "pris": 19,
-        "kortbeskrivelse": "Tofu camembert",
-        "langbeskrivelse": ".",
-        "billede": "camembert.jpg"
+        "kortbeskrivelse": "The famous french tofu camembert with smoked grapes",
+        "billede": "Camembert"
   },
     {
-        "id": 17,
-        "kategori": "desserter",
-        "navn": "Crepes",
-        "pris": 9,
-        "kortbeskrivelse": ".",
-        "langbeskrivelse": ".",
-        "billede": "crepes.jpg"
-  },
-    {
-        "id": 19,
-        "kategori": "desserter",
-        "navn": "Eclairs",
-        "pris": 9,
-        "kortbeskrivelse": ".",
-        "langbeskrivelse": ".",
-        "billede": "eclairs.jpg"
-  },
-    {
-        "id": 2,
-        "kategori": "drikkevarer",
-        "navn": "Frozen Lemonade",
-        "pris": 9,
-        "kortbeskrivelse": ".",
-        "langbeskrivelse": ".",
-        "billede": "frozen_lemonade.jpg"
-  },
-    {
-        "id": 21,
-        "kategori": "drikkevarer",
-        "navn": "Coffee",
-        "pris": 9,
-        "kortbeskrivelse": ".",
-        "langbeskrivelse": ".",
-        "billede": "kaffe.jpg"
-  },
-    {
-        "id": 25,
-        "kategori": "desserter",
-        "navn": "Macarons",
-        "pris": 19,
-        "kortbeskrivelse": ".",
-        "langbeskrivelse": ".",
-        "billede": "macarons.jpg"
-  },
-    {
-        "id": 34,
         "kategori": "hovedretter",
         "navn": "Green Salad",
-        "pris": 19,
-        "kortbeskrivelse": ".",
-        "langbeskrivelse": ". ",
-        "billede": "noodle_salat.jpg"
+        "pris": 15,
+        "kortbeskrivelse": "Green Salad with noodles",
+        "billede": "noodle_salat"
   },
     {
-        "id": 36,
         "kategori": "hovedretter",
         "navn": "Onion Soup",
-        "pris": 19,
-        "kortbeskrivelse": ".",
-        "langbeskrivelse": ".",
-        "billede": "onion_soup.jpg"
-},
+        "pris": 15,
+        "kortbeskrivelse": "The famous french onion soup - only vegan",
+        "billede": "onion_soup"
+  },
     {
-        "id": 38,
         "kategori": "hovedretter",
         "navn": "Red Pasta",
-        "pris": 19,
-        "kortbeskrivelse": ".",
-        "langbeskrivelse": ".",
-        "billede": "pasta-ret.jpg"
-},
+        "pris": 15,
+        "kortbeskrivelse": "Plant based pastas",
+        "billede": "pasta-ret"
+  },
     {
-        "id": 41,
         "kategori": "hovedretter",
         "navn": "Ratatouille",
         "pris": 19,
-        "kortbeskrivelse": ".",
-        "langbeskrivelse": ".",
-        "billede": "ratatouille.jpg"
-},
+        "kortbeskrivelse": "The famous french ratatouille - only vegan",
+        "billede": "ratatouille"
+  },
     {
-        "id": 42,
-        "kategori": "drikkevarer",
-        "navn": "Smoothies",
-        "pris": 11,
-        "kortbeskrivelse": ".",
-        "langbeskrivelse": ".",
-        "billede": "smoothie.jpg"
-},
-    {
-        "id": 43,
         "kategori": "hovedretter",
         "navn": "Snack Plate",
-        "pris": 15,
-        "kortbeskrivelse": ".",
-        "langbeskrivelse": ".",
-        "billede": "snack_plate.jpg"
-},
+        "pris": 9,
+        "kortbeskrivelse": "Snack plate with potatoes, avocado & more",
+        "billede": "snack_plate"
+  },
     {
-        "id": 44,
         "kategori": "hovedretter",
         "navn": "Truffle Fries",
         "pris": 9,
-        "kortbeskrivelse": ".",
-        "langbeskrivelse": ".",
-        "billede": "truffle_fries.jpg"
-}
+        "kortbeskrivelse": "Fried in vinegar",
+        "billede": "truffle_fries"
+  },
+    {
+        "kategori": "desserter",
+        "navn": "Berry Muffins",
+        "pris": 5,
+        "kortbeskrivelse": "Plant based muffins with wild berries",
+        "billede": "blueberry"
+  },
+    {
+        "kategori": "desserter",
+        "navn": "Brownies",
+        "pris": 5,
+        "kortbeskrivelse": "Vegan chocolate brownies",
+        "billede": "brownies"
+  },
+    {
+        "kategori": "desserter",
+        "navn": "Crepes Plate",
+        "pris": 9,
+        "kortbeskrivelse": "The famous french crepes - only banana based with berries and sugar",
+        "billede": "crepes"
+  },
+    {
+        "kategori": "desserter",
+        "navn": "Eclairs",
+        "pris": 5,
+        "kortbeskrivelse": "The famous french eclairs - only vegan",
+        "billede": "eclairs"
+  },
+    {
+        "kategori": "desserter",
+        "navn": "Macarons",
+        "pris": 9,
+        "kortbeskrivelse": "Box or plate of the famous french macarons - only vegan",
+        "billede": "macarons"
+  },
+    {
+        "kategori": "drikkevarer",
+        "navn": "Frozen Lemonade",
+        "pris": 9,
+        "kortbeskrivelse": "Frozen lemonade with either lemon, lime or mint",
+        "billede": "frozen_lemonade"
+  },
+    {
+        "kategori": "drikkevarer",
+        "navn": "Coffee",
+        "pris": 9,
+        "kortbeskrivelse": "Coffee with almond milk",
+        "billede": "kaffe"
+  },
+    {
+        "kategori": "drikkevarer",
+        "navn": "Smoothies",
+        "pris": 11,
+        "kortbeskrivelse": "Choose up to 3 ingredients to have in your smoothie!",
+        "billede": "smoothie"
+  }
 ]
